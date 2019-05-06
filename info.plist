@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string></string>
+	<key>contactName</key>
+	<string>Giuseppe Calabrese</string>
+	<key>description</key>
+	<string>The TV bundle helps maintaining a list of lastly watched episodes for your TV programs and series.</string>
+	<key>name</key>
+	<string>TV</string>
+	<key>uuid</key>
+	<string>7D9BAA99-38F3-442F-B5CB-28E64CDE4089</string>
+</dict>
+</plist>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18 -wKU
+
+require "#{ENV['TM_BUNDLE_SUPPORT']}/common.rb"
+
+line = STDIN.read
+entry = Entry.parse(line) rescue TextMate::exit_discard
+entry.episode += 1
+print entry
+</string>
+	<key>input</key>
+	<string>line</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~</string>
+	<key>name</key>
+	<string>Next Episode</string>
+	<key>outputCaret</key>
+	<string>interpolateByChar</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
+	<key>scope</key>
+	<string>source.tv</string>
+	<key>uuid</key>
+	<string>5ABC91A3-7910-4DFD-BD7A-D8BF7CE648EF</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
