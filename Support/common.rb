@@ -1,6 +1,13 @@
 # Needed by individual commands.
 require "#{ENV['TM_SUPPORT_PATH']}/lib/exit_codes"
 
+# Transforms an entry.
+def on_entry_line
+  entry = Entry.parse(STDIN.read) or TextMate::exit_discard
+  yield entry
+  print entry
+end
+
 # An entry as found in a "TV" file.
 #
 # An entry represents the state of a TV programme, described by the
@@ -31,14 +38,9 @@ class Entry < Struct.new(:title, :season, :episode, :comment)
 
   # Parses an entry.
   #
-  # Fails with an ArgumentError if the line is malformed.
-  # This is not a truly exceptional sistuation, since the file may contain
-  # other content.
+  # Returns nil if the line is not a valid entry.
   def self.parse(line)
-    unless line =~ RE
-      raise ArgumentError, "not a valid entry"
-    end
-
+    return nil unless line =~ RE
     entry = Entry.new(
       title = $3,
       season = $1.to_i,

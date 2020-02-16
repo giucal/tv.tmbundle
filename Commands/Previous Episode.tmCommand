@@ -6,14 +6,9 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby18 -wKU
-
 require "#{ENV['TM_BUNDLE_SUPPORT']}/common.rb"
 
-line = STDIN.read
-entry = Entry.parse(line) rescue TextMate::exit_discard
-entry.episode -= 1
-TextMate::exit_discard if entry.episode &lt; 0
-print entry
+on_entry_line { |e| e.episode -= 1 if e.episode &gt; 0 }
 </string>
 	<key>input</key>
 	<string>line</string>

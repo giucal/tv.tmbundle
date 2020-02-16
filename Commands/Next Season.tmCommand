@@ -6,13 +6,12 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby18 -wKU
-
 require "#{ENV['TM_BUNDLE_SUPPORT']}/common.rb"
 
-line = STDIN.read
-entry = Entry.parse(line) rescue TextMate::exit_discard
-entry.season += 1
-print entry
+on_entry_line do |e|
+  e.season += 1
+  e.episode = 1
+end
 </string>
 	<key>input</key>
 	<string>line</string>
